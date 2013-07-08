@@ -44,6 +44,479 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
+      <h2>Why?</h2>
+    </hgroup>
+    <article class="flexbox vcenter build">
+        <p>Be like a sir</p>
+        <img src="images/Gentleman.jpg" class="aside" alt="Description" title="Description">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Style Guides</h2>
+    </hgroup>
+    <article>
+      <p>Things You need to know:</p>
+        <ul>
+          <li><a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">Google</a></li>
+          <li><a href="https://npmjs.org/doc/coding-style.html">npm</a></li>
+          <li><a href="http://nodeguide.com/style.html">Node.js</a></li>
+          <li><a href="https://github.com/rwldrn/idiomatic.js/">idiomatic.js</a></li>
+          <li><a href="http://contribute.jquery.org/style-guide/js/">jQuery</a></li>
+          <li><a href="http://javascript.crockford.com/code.html">D. Crockford</a></li>
+        </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Advice</h2>
+    </hgroup>
+    <article>
+        <ul class="build">
+          <li>Readability</li>
+          <li>Readability</li>
+          <li>Readability</li>
+          <li>ReAd.AbIlItY()</li>
+        </ul>
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Design</h2>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Identation</h2>
+      <h3>Tabs vs Spaces</h3>
+    </hgroup>
+    <article>
+        <ul>
+          <li>Tab(4 spaces) - jQuery</li>
+          <li>Tab(2 spaces)</li>
+          <li>4 Spaces - D. Crockford</li>
+          <li>2 Spaces - Google, npm, Node.js, Idiomatic</li>
+        </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Trailing whitespace</h2>
+    </hgroup>
+    <article>
+        <pre class="prettyprint" data-lang="javascript">
+  var a = 10,
+      b = 20,
+      c = 30;
+  function someFunc(let, the, force, be, with, you) {
+    for (var i = 0, n = arguments.lenght; i &lt; n; i++) {
+      a = b + c;
+      if (true) {
+        //do smth
+      }
+      console.log('i\'m done');
+    }
+  }
+  var array = [10, 20, true, 'yes'];
+
+  var obj = {
+    'prop' : 'value'
+  };</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Curly braces</h2>
+    </hgroup>
+    <article>
+    <p>NO</p>
+        <pre class="prettyprint" data-lang="javascript">
+  function someFunc()
+  {
+    // do smth
+  }</pre>
+    <p>YES</p>
+        <pre class="prettyprint" data-lang="javascript">
+  function someFunc() {
+    // do smth
+  }</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Why?</h2>
+    </hgroup>
+    <article class="build">
+        <pre class="prettyprint" data-lang="javascript">
+  return 
+  {
+    'someProperty' : true
+  }</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Line width</h2>
+    </hgroup>
+    <article>
+        <p><b>Max 80 characters</b><br></p>
+        <p>only if some very very very very very long string is present, DO NOT break it with + or something else, just let her be</p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Semicolons</h2>
+    </hgroup>
+    <article>
+        <p><h1>Always use semicolons and don’t rely in implicit insertion</h1></p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Comments</h2>
+    </hgroup>
+    <article class="build">
+        <pre class="prettyprint" data-lang="javascript">
+  <b>// single line comment</b>
+
+  /* 
+    multiple
+    line
+    comment
+  */</pre>
+<p>let's assume that there are no /* */</p>
+<pre class="prettyprint" data-lang="javascript">
+  <b>// much
+  // better
+  // comment</b></pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Quotes</h2>
+      <h3>' vs "</h3>
+    </hgroup>
+    <article>
+    <pre class="prettyprint" data-lang="javascript">
+  ' // Google, Node.js
+  " // jQuery</pre>
+        <p>Actually there no difference</p>
+        <p>But....</p>
+        <p><b>Never mix quotes in the same project. Pick one style and stick with it.</b></p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Equality</h2>
+    </hgroup>
+    <article>
+        <p>Use <span class="blue3">==</span> instead of <span class="blue">===</span> <span class="red"><b>ONLY</b></span> when checking for undefined and null</p>
+        <pre class="prettyprint" data-lang="javascript">
+  undefinedOfNull == null;</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Variable declaration</h2>
+    </hgroup>
+    <article>
+    <p>one per line, no commas</p>
+    <pre class="prettyprint" data-lang="javascript">
+    var a = 10;
+    var b = [''];
+    var c = true;</pre>
+    <p>multiple in one, ending with commas</p>
+    <pre class="prettyprint" data-lang="javascript">
+    var a = 10,
+        b = [''],
+        c = true;</pre>
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Naming</h2>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Variables</h2>
+    </hgroup>
+    <article>
+    <p>Start first word lowercase and after that all words start with uppercase letter:</p>
+    <pre class="prettyprint" data-lang="javascript">
+    var foo = 'bar',
+        fooBar = true;</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Constants</h2>
+    </hgroup>
+    <article>
+    <p>Use uppercase:</p>
+    <pre class="prettyprint" data-lang="javascript">
+    var MYCONST = 'i\'m  your father'</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Functions</h2>
+    </hgroup>
+    <article>
+    <p>Start first word lowercase and after that all words start with uppercase letter:</p>
+    <pre class="prettyprint" data-lang="javascript">
+      function foo() {}
+      function fooBar() {}
+      function veryLongFunctionName() {}</pre>
+    <p>Use words like 'is', 'set', 'get':</p>
+    <pre class="prettyprint" data-lang="javascript">
+      function isReady() {}
+      function getProperty() {}
+      function setValue() {}</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Arrays</h2>
+    </hgroup>
+    <article>
+    <p>Use plural forms:</p>
+    <pre class="prettyprint" data-lang="javascript">
+      var object<b>s</b> = [{}, {}, {}];</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Objects</h2>
+    </hgroup>
+    <article>
+    <p>All words start with uppercase letter:</p>
+    <pre class="prettyprint" data-lang="javascript">
+      var <b>O</b>bject = {},
+          <b>U</b>sefull<b>O</b>bject = {'PI' : 3.14};
+
+      function <b>C</b>onstructor<b>F</b>unction(args) {}
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground">
+    <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Tips &amp; Tricks</h2>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>new Type()</h2>
+    </hgroup>
+    <article>
+    <p>Do not use:</p>
+    <pre class="prettyprint" data-lang="javascript">
+      var o = new Object(),
+          a = new Array(),
+          n = new Number(1),
+          s = new String('1'),
+          b = new Boolean(true);</pre>
+    <p>Be simple, it's faster</p>
+      <pre class="prettyprint" data-lang="javascript">
+      var o = {},
+          a = [],
+          n = 1,
+          s = '1',
+          b = true;</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>if</h2>
+    </hgroup>
+    <article>
+    <p>Do not use:</p>
+    <pre class="prettyprint" data-lang="javascript">
+     if (foo === true) {
+      // do smth
+     }</pre>
+    <p>Instead</p>
+      <pre class="prettyprint" data-lang="javascript">
+      if (foo) {
+        //do smth
+      }</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Ternary</h2>
+    </hgroup>
+    <article>
+    <p>Do not use:</p>
+    <pre class="prettyprint" data-lang="javascript">
+    var stuff;
+    if (foo === 'bar') {
+      stuff = 10
+    } else {
+      stuff = 0
+    }</pre>
+    <p>Instead</p>
+      <pre class="prettyprint" data-lang="javascript">
+     var stuff = foo === 'bar' ? 10 : 0;</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>But</h2>
+    </hgroup>
+    <article>
+    <p>Do not use:</p>
+    <pre class="prettyprint" data-lang="javascript">
+    var isEqual = a === b ? true : false;</pre>
+    <p>Instead</p>
+      <pre class="prettyprint" data-lang="javascript">
+    var isEqual = a === b;</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>for</h2>
+    </hgroup>
+    <article class="build">
+    <pre class="prettyprint" data-lang="javascript">
+    var messages = document.querySelectorAll('.message');
+    for (var i = 0; i &lt; messages.length; i++) {
+      // do smth with messages[i]
+    }</pre>
+    <p>Much better</p>
+    <pre class="prettyprint" data-lang="javascript">
+    var messages = document.querySelectorAll('.message');
+    for (var i = 0, n = messages.length; i &lt; n; i++) {
+      // do smth with messages[i]
+    }</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>even better</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint" data-lang="javascript">
+    var messages = document.querySelectorAll('.message'),
+        n = messages.length,
+        i = 0;
+    for (; i &lt; n; i++) {
+      // do smth with messages[i]
+    }</pre>
+    <p>Or even</p>
+    <pre class="prettyprint" data-lang="javascript">
+    var messages = document.querySelectorAll('.message'),
+        i = messages.length;
+    while (i--) {
+      // do smth with messages[i];
+    }</pre>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>for in</h2>
+    </hgroup>
+    <article class="build">
+    <pre class="prettyprint" data-lang="javascript">
+    for (prop in someObject) {
+      // do smth with someObject[prop]
+    }</pre>
+    <p>Use only if you're sure!</p>
+    <p>Think twice before using <span class="blue3">for in</span></p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>switch</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint" data-lang="javascript">
+    swith statement {
+      case '1':
+        //do smth
+        <b>break;</b>
+      case '2':
+        //do smth else
+        <b>break;</b>
+      <b>default:</b>
+        //do smth by default
+    }</pre>
+    <p>Always use <span class="blue3">break;</span> and <span class="blue3">default</span></p>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>with</h2>
+    </hgroup>
+    <article class="build">
+    <pre class="prettyprint" data-lang="javascript">
+    with (someObject) {
+      //do smth with someObject
+    }</pre>
+    <img src="images/no.jpg">
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>HTML strings</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint" data-lang="javascript">
+      var div = '&lt;div class="wrapper"&gt;';
+        div += '&lt;p&gt;some content&lt;/p&gt;';
+        div += '&lt;/div&gt;';
+        //1 reflow</pre>
+
+      <p>Still better than</p>
+      <pre class="prettyprint" data-lang="javascript">
+      $('&lt;div&gt;').addClass('wrapper').append('&lt;p&gt;').text('some content')
+      // 4 reflows</pre>
+      
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>jQuery</h2>
+    </hgroup>
+    <article>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
       <h2>Slide with Bullets</h2>
     </hgroup>
     <article>
@@ -379,7 +852,7 @@ function helloWorld(world) {
     <aside class="gdbar right"><img src="images/google_developers_icon_128.png"></aside>
     <article class="flexbox vleft auto-fadein">
       <h2>&lt;Thank You!&gt;</h2>
-      <p>Important contact information goes here.</p>
+      <p>You can find me here:</p>
     </article>
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->
