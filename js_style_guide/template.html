@@ -15,7 +15,7 @@ URL: https://code.google.com/p/io-2012-slides
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
   <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
   <!--This one seems to work all the time, but really small on ipad-->
-  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="viewport" content="initial-scale=0.4">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
@@ -102,6 +102,7 @@ URL: https://code.google.com/p/io-2012-slides
           <li>4 Spaces - D. Crockford</li>
           <li>2 Spaces - Google, npm, Node.js, Idiomatic</li>
         </ul>
+        <p>Never mix them together</p>
     </article>
   </slide>
 
@@ -114,7 +115,7 @@ URL: https://code.google.com/p/io-2012-slides
   var a = 10,
       b = 20,
       c = 30;
-  function someFunc(let, the, force, be, with, you) {
+  function someFunc(may, the, force, be, with, you) {
     for (var i = 0, n = arguments.lenght; i &lt; n; i++) {
       a = b + c;
       if (true) {
@@ -261,8 +262,8 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
     <p>Start first word lowercase and after that all words start with uppercase letter:</p>
     <pre class="prettyprint" data-lang="javascript">
-    var foo = 'bar',
-        fooBar = true;</pre>
+    var <b>f</b>oo = 'bar',
+        <b>f</b>oo<b>B</b>ar = true;</pre>
     </article>
   </slide>
 
@@ -273,7 +274,7 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
     <p>Use uppercase:</p>
     <pre class="prettyprint" data-lang="javascript">
-    var MYCONST = 'i\'m  your father'</pre>
+    var <b>MYCONST</b> = 'i\'m  your father'</pre>
     </article>
   </slide>
 
@@ -284,14 +285,14 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
     <p>Start first word lowercase and after that all words start with uppercase letter:</p>
     <pre class="prettyprint" data-lang="javascript">
-      function foo() {}
-      function fooBar() {}
-      function veryLongFunctionName() {}</pre>
+      function <b>f</b>oo() {}
+      function <b>f</b>oo<b>B</b>ar() {}
+      function <b>v</b>ery<b>L</b>ong<b>F</b>unction<b>N</b>ame() {}</pre>
     <p>Use words like 'is', 'set', 'get':</p>
     <pre class="prettyprint" data-lang="javascript">
-      function isReady() {}
-      function getProperty() {}
-      function setValue() {}</pre>
+      function <b>is</b>Ready() {}
+      function <b>get</b>Property() {}
+      function <b>set</b>Value() {}</pre>
     </article>
   </slide>
 
@@ -461,7 +462,7 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article>
     <pre class="prettyprint" data-lang="javascript">
-    swith statement {
+    switch statement {
       case '1':
         //do smth
         <b>break;</b>
@@ -481,10 +482,40 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article class="build">
     <pre class="prettyprint" data-lang="javascript">
-    with (someObject) {
-      //do smth with someObject
-    }</pre>
+    with (someObject) { //do smth with someObject }</pre>
+    <p>You're going to use it?</p>
     <img src="images/no.jpg">
+    </article>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>Early returns</h2>
+    </hgroup>
+    <article class="smaller">
+    <pre class="prettyprint" data-lang="javascript">
+function returnLate(foo) {
+  var ret;
+  if (foo) {
+    ret = 'foo';
+  } else {
+    ret = 'quux';
+  }
+  return ret; // Bad
+}
+
+function returnEarly(foo) {
+  if (foo) {
+    return 'foo';
+  }
+  return 'quux'; // Good
+}
+
+function returnImmediate() {
+  return foo ? 'foo' : 'quux'; // Or even this way
+}
+</pre>
+
     </article>
   </slide>
 
@@ -509,342 +540,67 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
-      <h2>jQuery</h2>
+      <h2>jQuery variables</h2>
     </hgroup>
     <article>
+    <pre class="prettyprint" data-lang="javascript">
+      // Start with $ 
+      var $buttons = $('button')
+      // Always cache your variables
+      var $wrapper = $('#wrapper');
+      
+      $('.message').text(someText);
+      $('.message').on('click', function() {}); // Very bad
+
+      // Use chaining
+      $('.message').text(someText).on('click', function() {});
+      // Or increase readability
+      $('.message')
+      .text(someText)
+      .on('click', function() {});
+    </pre>
     </article>
   </slide>
-
+  
   <slide>
     <hgroup>
-      <h2>Slide with Bullets</h2>
+      <h2>jQuery selectors</h2>
     </hgroup>
     <article>
-      <ul>
-        <li>Titles are formatted as Open Sans with bold applied and font size is set at 45</li>
-        <li>Title capitalization is title case
-          <ul>
-            <li>Subtitle capitalization is title case</li>
-          </ul>
-        </li>
-        <li>Subtitle capitalization is title case</li>
-        <li>Titles and subtitles should never have a period at the end</li>
-      </ul>
-    </article>
-  </slide>
+    <pre class="prettyprint" data-lang="javascript">
+      $('li[data-selected="true"] a') // Looks good, but weeeery slow
+      $('li.selected a')              // Much Better
+      $('#elem')                      // Fastest</pre>
 
-  <slide>
-    <hgroup>
-      <h2>Slide with Bullets that Build</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <p>A list where items build:</p>
-      <ul class="build">
-        <li>Pressing 'h' highlights code snippets</li>
-        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
-        <li>Pressing 'f' toggles fullscreen viewing</li>
-        <li>Pressing 'w' toggles widescreen</li>
-        <li>Pressing 'o' toggles overview mode</li>
-        <li>Pressing 'ESC' toggles off these goodies</li>
-      </ul>
-      <p>Another list, but items fade as they build:</p>
-      <ul class="build fade">
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with (Smaller Font)</h2>
-    </hgroup>
-    <article class="smaller">
-      <ul>
-        <li>All <a href="http://google.com">links</a> open in new tabs.</li>
-        <li>To change that this, add <code>target="_self"</code> to the link.</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide hidden>
-    Hidden slides are left out of the presentation.
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Code Slide (with Subtitle Placeholder)</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <p>Press 'h' to highlight important sections of code (wrapped in <code>&lt;b&gt;</code>).</p>
       <pre class="prettyprint" data-lang="javascript">
-&lt;script type='text/javascript'&gt;
-  // Say hello world until the user starts questioning
-  // the meaningfulness of their existence.
-  function helloWorld(world) {
-    <b>for (var i = 42; --i &gt;= 0;) {
-      alert('Hello ' + String(world));
-    }</b>
-  }
-&lt;/script&gt;
-</pre>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Code Slide (Smaller Font)</h2>
-    </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="javascript">
-// Say hello world until the user starts questioning
-// the meaningfulness of their existence.
-function helloWorld(world) {
-  for (var i = 42; --i &gt;= 0;) {
-    alert('Hello ' + String(world));
-  }
-}
-</pre>
-<pre class="prettyprint" data-lang="css">
-&lt;style&gt;
-  p { color: pink }
-  b { color: blue }
-&lt;/style&gt;
-</pre>
-<pre class="prettyprint" data-lang="html">
-&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  &lt;title>My Awesome Page&lt;/title>
-&lt;/head>
-&lt;body>
-  &lt;p&gt;Hello world&lt;/p&gt;
-&lt;body>
-&lt;/html>
-</pre>
-    </article>
-  </slide>
-
-  <slide>
-    <aside class="note">
-      <section>
-        <ul>
-          <li>Point I wanted to make #1</li>
-          <li>Point I wanted to make #2</li>
-          <li>Point I wanted to make #3</li>
-          <li>Example <a href="#">link</a> in notes.</li>
-        </ul>
-        <p><b>Remember to say this tag line!</b></p>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Slide with Speaker Notes</h2>
-    </hgroup>
-    <article>
-      <p>Press 'p' to toggle speaker notes.</p>
-    </article>
-  </slide>
-
-  <slide>
-    <aside class="note">
-      <section>
-        <ul>
-          <li>See this amazing link: <a href="http://www.google.com">link</a>.</li>
-        </ul>
-        <p><b>Remember to say this tag line!</b></p>
-      </section>
-    </aside>
-    <hgroup>
-      <h2>Presenter Mode</h2>
-    </hgroup>
-    <article>
-      <p>Add <code><a href="?presentme=true" target="_self">?presentme=true</a></code> to the URL to enabled presenter mode.
-      This setting is sticky, meaning refreshing the page will persist presenter
-      mode.</p>
-      <p>Hit <code><a href="?presentme=false" target="_self">?presentme=false</a></code> to disable presenter mode.</p>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with Image</h2>
-    </hgroup>
-    <article>
-      <img src="images/chart.png" class="reflect" alt="Description" title="Description">
-      <footer class="source">source: place source info here</footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide with Image (Centered horz/vert)</h2>
-    </hgroup>
-    <article class="flexbox vcenter">
-      <img src="images/barchart.png" alt="Description" title="Description">
-      <footer class="source">source: place source info here</footer>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option A (Smaller Text)</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article class="smaller">
-      <table>
-        <tr>
-          <th></th><th>Column 1</th><th>Column 2</th><th>Column 3</th><th>Column 4</th>
-        </tr>
-        <tr>
-          <td>Row 1</td><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 2</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 3</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 4</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <td>Row 5</td><td>placeholder</td><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Table Option B</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <table class="rows">
-        <tr>
-          <th>Header 1</th><td>placeholder</td><td class="highlight">placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 2</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 3</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 4</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-        <tr>
-          <th>Header 5</th><td>placeholder</td><td>placeholder</td><td>placeholder</td>
-        </tr>
-      </table>
-    </article>
-  </slide>
-
-  <slide>
-    <hgroup>
-      <h2>Slide Styles</h2>
-    </hgroup>
-    <article class="smaller">
-      <div class="columns-2">
-        <ul>
-          <li class="red">class="red"</li>
-          <li class="red2">class="red2"</li>
-          <li class="red3">class="red3"</li>
-          <li class="blue">class="blue"</li>
-          <li class="blue2">class="blue2"</li>
-          <li class="blue3">class="blue3"</li>
-          <li class="green">class="green"</li>
-          <li class="green2">class="green2"</li>
-        </ul>
-        <ul>
-          <li class="green3">class="green3"</li>
-          <li class="yellow">class="yellow"</li>
-          <li class="yellow2">class="yellow2"</li>
-          <li class="yellow3">class="yellow3"</li>
-          <li class="gray">class="gray"</li>
-          <li class="gray2">class="gray2"</li>
-          <li class="gray3">class="gray3"</li>
-          <li class="gray4">class="gray4"</li>
-        </ul>
-      </div>
-      <div class="centered" style="margin-top:2em">
-        I am centered text with a <button>Button</button> and <button disabled>Disabled</button> button.
-      </div>
+      $('a.button:animated'); // Does not use querySelectorAll()
+      $('a.button').filter(':animated');  // Uses it
+      </pre>
     </article>
   </slide>
 
   <slide class="segue dark nobackground">
     <aside class="gdbar"><img src="images/google_developers_icon_128.png"></aside>
     <hgroup class="auto-fadein">
-      <h2>Segue Slide</h2>
-      <h3>Subtitle Placeholder</h3>
+      <h2>In Conclusion</h2>
     </hgroup>
   </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/sky.jpg)">
-    <hgroup>
-      <h2 class="white">Full Image (with Optional Header)</h2>
-    </hgroup>
-    <footer class="source white">www.flickr.com/photos/25797459@N06/5438799763/</footer>
-  </slide>
-
-  <slide class="segue dark quote nobackground">
-    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
-    <article class="flexbox vleft auto-fadein">
-      <q>
-        This is an example of quote text.
-      </q>
-      <div class="author">
-        Name<br>
-        Company
-      </div>
-    </article>
-  </slide>
-
+  
   <slide>
     <hgroup>
-      <h2>Slide with Iframe</h2>
+      <h2>SEF</h2>
     </hgroup>
     <article>
-      <iframe data-src="http://www.google.com/doodle4google/resources/history.html"></iframe>
-    </article>
-  </slide>
+    <p>Never forget about</p>
+    <pre class="prettyprint" data-lang="javascript">
+    (function() {
 
-  <slide>
-    <article>
-      <iframe data-src="http://www.google.com/doodle4google/resources/history.html"></iframe>
+    }());</pre>
+      <p>or</p>
+      <pre class="prettyprint" data-lang="javascript">
+    (function($) {
+
+    }(jQuery));</pre>
     </article>
   </slide>
 
@@ -868,22 +624,5 @@ function helloWorld(world) {
   <slide class="backdrop"></slide>
 
 </slides>
-
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
-</script>
-
-<!--[if IE]>
-  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
-  <script>CFInstall.check({mode: 'overlay'});</script>
-<![endif]-->
 </body>
 </html>

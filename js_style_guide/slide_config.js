@@ -3,10 +3,10 @@ var SLIDE_CONFIG = {
   settings: {
     title: 'JavaScript Style Guide',
     subtitle: 'Coding Principles',
-    //eventInfo: {
-    //  title: 'Google I/O',
-    //  date: '6/x/2013'
-    //},
+    eventInfo: {
+     title: 'Front-End community meeting',
+     date: '10/07/2013'
+    },
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: false, // Default: true. False turns off the click areas on either slide of the slides.
