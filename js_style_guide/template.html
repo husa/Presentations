@@ -52,6 +52,18 @@ URL: https://code.google.com/p/io-2012-slides
         <img src="images/Gentleman.jpg" class="aside" alt="Description" title="Description">
     </article>
   </slide>
+  
+  <slide class="segue dark quote nobackground">
+    <aside class="gdbar right bottom"><img src="images/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <q>
+        Arguments over style are pointless. There should be a style guide, and you should follow it
+      </q>
+      <div class="author">
+        Rebecca Murphey
+      </div>
+    </article>
+   </slide>
 
   <slide>
     <hgroup>
@@ -371,6 +383,20 @@ URL: https://code.google.com/p/io-2012-slides
           n = 1,
           s = '1',
           b = true;</pre>
+    </article>
+  </slide>
+  
+  <slide>
+    <hgroup>
+      <h2>Object Comparison</h2>
+    </hgroup>
+    <article>
+    <pre class="prettyprint" data-lang="javascript">
+     foo === bar // very slow</pre>
+
+     <p>"Large" practical objects usually have some unique id</p>
+    <pre class="prettyprint" data-lang="javascript">
+     foo.id === bar.id // much faster</pre>
     </article>
   </slide>
 
