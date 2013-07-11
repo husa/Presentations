@@ -284,22 +284,22 @@ Properties:
 
     var stuff;
     if (foo === 'bar') {
-        stuff = 10
+        stuff = value1;
     } else {
-        stuff = 0
+        stuff = value2;
     }
 **YES**
 
-     var stuff = (foo === 'bar') ? 10 : 9;
+     var stuff = (foo === 'bar') ? value1 : value2;
 
 Use braces:
 
 **NO**
 
-    var stuff = foo === 'bar' ? 10 : 9;
+    var stuff = foo === 'bar' ? value1 : value2;
 **YES**
 
-    var stuff = (foo === 'bar') ? 10 : 9;
+    var stuff = (foo === 'bar') ? value1 : value2;
 But only working with simple types: *Numbers*, *Strings* or ***Variables***
 
 **NO**
@@ -386,7 +386,7 @@ or
 
 **"Start Case": object**
 
-    var Object = {}
+    var Object = {};
 
 **"Upper Case": pseudo constants**
 
