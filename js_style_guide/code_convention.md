@@ -1,8 +1,6 @@
 
 # Xyleme Code Convention
 
--------
-
 ### Identation
 
 **2 spaces.**
@@ -22,17 +20,17 @@
 
 **NO**
 
-	/*
-	 some
-	 multiline
-		 comment
-	*/
+    /*
+    some
+    multiline
+    comment
+    */
 
 **YES**
 
-	// some
-	// multiline
-	// comment
+    // some
+    // multiline
+    // comment
 
 
 ----
@@ -40,26 +38,26 @@
 
 **JavaScript**
 
-	'
+    '
 
 **HTML/CSS**
 
-	"
+    "
 
 ----
 ### Trailing whitespace
 
 
-	var a = 10,
-		b = 20,
-		c = 30;
-	var array = [10, 20, true, 'yes'];
+    var a = 10,
+        b = 20,
+        c = 30;
+    var array = [10, 20, true, 'yes'];
 
-	var obj = {
-		'prop' : 'value'
-	};
+    var obj = {
+        'prop' : 'value'
+    };
 
-	if (condition) {
+    if (condition) {
       // statements
     }
 
@@ -80,51 +78,54 @@
 ----
 ### Curly braces
 
-**NO**
-
-	for (i = 0, n = arr.length; i < n; i++)
-	if (condition)
-		//do smth
-	else
-		//do smth
-
-**YES**
-
-	for (i = 0, n = arr.length; i < n; i++) {
-	if (condition) {
-		//do smth
-	} else {
-		//do smth
-	}
-	}
-
+Use them, always
 
 **NO**
 
-	if (condition)
-	{
-	//do smth
-	}
+    for (i = 0, n = arr.length; i < n; i++)
+        if (condition)
+            //statements
+        else
+            //statements
 
 **YES**
 
-	if (condition) {
-		//do smth
-	}
+    for (i = 0, n = arr.length; i < n; i++) {
+        if (condition) {
+            //statements
+        } else {
+            //statements
+        }
+    }
+
+Opening brace on the same line
+
+**NO**
+
+    if (condition)
+    {
+    //statements
+    }
+
+**YES**
+
+    if (condition) {
+        //statements
+    }
 
 ----
 ### Equality
 
 **Always**
 
-	===
+    ===
 
 **Only one case**
 
-	//Dont
-	if (a === undefined || a === null)
-	// Use
-	if (a == null)
+    //Dont
+    if (a === undefined || a === null)
+    // Use
+    if (a == null)
 
 
 ----
@@ -175,177 +176,228 @@ Local Variables:
 Properties:
 
         object.prop === undefined
-        object.hasOwnProperty( prop )
-        "prop" in object
+        object.hasOwnProperty(prop)
 
 ----
 ### Variable Declaration
 
 **NO**
 
-	var a = 10;
-	var b = true;
-	var c = 'string';
+    var a = 10;
+    var b = true;
+    var c = 'string';
 
 **YES**
 
-	var a = 10,
-	b = true,
-	c = 'string'
+    var a = 10,
+        b = true,
+        c = 'string';
 
 ----
 ### Default Constructors
 
 **NO**
 
-	var o = new Object(),
-		a = new Array(),
-		n = new Number(1),
-		s = new String('1'),
-		b = new Boolean(true);
+    var o = new Object(),
+        a = new Array(),
+        n = new Number(1),
+        s = new String('1'),
+        b = new Boolean(true);
 **YES**
 
-	var o = {},
-		a = [],
-		n = 1,
-		s = '1',
-		b = true;
+    var o = {},
+        a = [],
+        n = 1,
+        s = '1',
+        b = true;
 
 ----
 ### if
 
-**NO**
+    // When only evaluating that an array has length,
+    // instead of this:
+    if (array.length > 0) ...
 
-	 if (foo === true) {
-		// do smth
-	 }
-**YES**
+    // ...evaluate truthiness, like this:
+    if (array.length) ...
 
-	if (foo) {
-		//do smth
-	}
+
+    // When only evaluating that an array is empty,
+    // instead of this:
+    if (array.length === 0) ...
+
+    // ...evaluate truthiness, like this:
+    if (!array.length) ...
+
+
+    // When only evaluating that a string is not empty,
+    // instead of this:
+    if (string !== "") ...
+
+    // ...evaluate truthiness, like this:
+    if (string) ...
+
+
+    // When only evaluating that a string _is_ empty,
+    // instead of this:
+    if (string === "") ...
+
+    // ...evaluate falsy-ness, like this:
+    if (!string) ...
+
+
+    // When only evaluating that a reference is true,
+    // instead of this:
+    if (foo === true) ...
+
+    // ...evaluate like you mean it, take advantage of built in capabilities:
+    if (foo) ...
+
+
+    // When evaluating that a reference is false,
+    // instead of this:
+    if (foo === false) ...
+
+    // ...use negation to coerce a true evaluation
+    if (!foo) ...
+
+    // ...Be careful, this will also match: 0, "", null, undefined, NaN
+    // If you _MUST_ test for a boolean false, then use
+    if (foo === false) ...
+
+
+    // When only evaluating a ref that might be null or undefined, but NOT false, "" or 0,
+    // instead of this:
+    if (foo === null || foo === undefined) ...
+
+    // ...take advantage of == type coercion, like this:
+    if (foo == null) ...
+
+    // Remember, using == will match a `null` to BOTH `null` and `undefined`
+    // but not `false`, "" or 0
+    null == undefined
 
 ----
 ### Ternary
 
 **NO**
 
-	var stuff;
-	if (foo === 'bar') {
-		stuff = 10
-	} else {
-		stuff = 0
-	}
+    var stuff;
+    if (foo === 'bar') {
+        stuff = 10
+    } else {
+        stuff = 0
+    }
 **YES**
 
-	 var stuff = (foo === 'bar') ? 10 : 9;
+     var stuff = (foo === 'bar') ? 10 : 9;
 
 Use braces:
 
 **NO**
 
-	var stuff = foo === 'bar' ? 10 : 9;
+    var stuff = foo === 'bar' ? 10 : 9;
 **YES**
 
-	var stuff = (foo === 'bar') ? 10 : 9;
+    var stuff = (foo === 'bar') ? 10 : 9;
 But only working with simple types: *Numbers*, *Strings* or ***Variables***
 
 **NO**
 
-	var stuff = foo === 'bar' ? func1() : func2();
+    var stuff = foo === 'bar' ? func1() : func2();
 
 and working with Boolean
 
 **NO**
 
-	var stuff = foo === 'bar' ? true : false;
+    var stuff = foo === 'bar' ? true : false;
 
 **YES**
 
-	var stuff = foo === 'bar';
+    var stuff = foo === 'bar';
 
 ----
 ### for loop
 
 **NO**
 
-	var messages = [];
-	for (var i = 0; i < messages.length; i++) {
-		// do smth with messages[i]
-	}
+    var arr = [];
+    for (var i = 0; i < arr.length; i++) {
+        // statements
+    }
 
 **YES**
 
-	var messages = [];
-	for (var i = 0, n = messages.length; i < n; i++) {
-		// do smth with messages[i]
-	}
+    var arr = [];
+    for (var i = 0, n = arr.length; i < n; i++) {
+        // statements
+    }
 
 or
 
-	var messages = [],
-		n = messages.length,
-		i = 0;
-	for (; i < n; i++) {
-		// do smth with messages[i]
-	}
+    var arr = [],
+        n = arr.length,
+        i = 0;
+    for (; i < n; i++) {
+        // statements
+    }
 
 ----
 ### Early returns
 
 **NO**
 
-	function returnLate(foo) {
-		var ret;
-		if (foo) {
-			ret = 'foo';
-		} else {
-			ret = 'quux';
-		}
-		return ret;
-	}
+    function returnLate(foo) {
+        var ret;
+        if (foo) {
+            ret = 'foo';
+        } else {
+            ret = 'quux';
+        }
+        return ret;
+    }
 
 **YES**
 
-	function returnEarly(foo) {
-		if (foo) {
-			return 'foo';
-		}
-		return 'quux';
-	}
+    function returnEarly(foo) {
+        if (foo) {
+            return 'foo';
+        }
+        return 'quux';
+    }
 
 ----
 ## Naming
 
 **NO**
 
-	//Current Question
-	var cq;
-	var currQuest;
+    //Current Question
+    var cq;
+    var currQuest;
 
 **YES**
 
-	var currentQuestion;
+    var currentQuestion;
 
 **"Camel Case": variables, functions, arrays**
 
-	var thisIsVariable;
-	function thisIsFunction();
+    var thisIsVariable;
+    function thisIsFunction();
 
 **"Start Case": object**
 
-	var Object = {}
+    var Object = {}
 
 **"Upper Case": pseudo constants**
 
-	var MYCONSTANT;
+    var MYCONSTANT;
 
 **Plural form: arrays**
 
-	var questions = [];
+    var questions = [];
 
 ?????????????????
 
 **jQuery objects**
 
-	var $container = $('#container');
+    var $container = $('#container');
