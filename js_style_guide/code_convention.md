@@ -401,3 +401,18 @@ or
 **jQuery objects**
 
     var $container = $('#container');
+
+
+## Possible Sublime Settings
+
+    {
+      "draw_white_space": "all",
+      "trim_trailing_white_space_on_save": true,
+      "word_wrap": true,
+      "detect_identation": false,
+      "disable_formatted_linebreak" : true,
+      "rulers" : [80],
+      "tab_size" : 2,
+      "translate_tabs_to_spaces" : true,
+      "trim_automatic_white_space" : true,
+    }
