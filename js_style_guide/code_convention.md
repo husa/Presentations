@@ -4,6 +4,7 @@
 ### Identation
 
 **4 spaces.**
+
 ----
 ### Line width
 
@@ -76,7 +77,7 @@
 
     function name() {
     	var a = 1;
-	
+
         // statements
     }
 
@@ -413,7 +414,7 @@ or
     var questions = [];
 
 
-**jQuery objects**
+**jQuery objects: starts with $**
 
     var $container = $('#container');
 
