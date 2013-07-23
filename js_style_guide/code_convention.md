@@ -3,7 +3,7 @@
 
 ### Identation
 
-**2 spaces.**
+**4 spaces.**
 
 ----
 ### Line width
@@ -18,15 +18,15 @@
 ----
 ### Comments
 
-**NO**
+**Talking**
 
     /*
-    some
-    multiline
-    comment
+    * some
+    * multiline
+    * comment
     */
 
-**YES**
+**Commenting code** + **Simple single line**
 
     // some
     // multiline
@@ -73,6 +73,12 @@
       // statements
     } else {
       // statements
+    }
+
+    function name() {
+    	var a = 1;
+
+        // statements
     }
 
 ----
@@ -150,6 +156,7 @@ Object:
 Array:
 
         Array.isArray( arrayLikeObject ) // wherever possible
+        if (arrayLikeObject instanceof Array )
 
 Node:
 
@@ -187,11 +194,12 @@ Properties:
     var b = true;
     var c = 'string';
 
-**YES**
+**YES** **(at the top of the function)**
 
     var a = 10,
         b = true,
-        c = 'string';
+        c = 'string',
+        d, e, f;
 
 ----
 ### Default Constructors
@@ -342,6 +350,15 @@ or
         // statements
     }
 
+or
+
+    var arr = [],
+        n, i;
+
+    for (i = 0, n = arr.length; i < n; i++) {
+        // statements
+    }
+
 ----
 ### Early returns
 
@@ -390,14 +407,28 @@ or
 
 **"Upper Case": pseudo constants**
 
-    var MYCONSTANT;
+    var MY_CONSTANT;
 
 **Plural form: arrays**
 
     var questions = [];
 
-?????????????????
 
-**jQuery objects**
+**jQuery objects: starts with $**
 
     var $container = $('#container');
+
+
+## Possible Sublime Settings
+
+    {
+      "draw_white_space": "all",
+      "trim_trailing_white_space_on_save": false,
+      "word_wrap": true,
+      "detect_identation": false,
+      "disable_formatted_linebreak" : true,
+      "rulers" : [80],
+      "tab_size" : 4,
+      "translate_tabs_to_spaces" : true,
+      "trim_automatic_white_space" : true
+    }
