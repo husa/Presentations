@@ -16,7 +16,10 @@ var Module = (function(){
 		init         : function() {},
 		globalMethod : privateMethod
 	}
-
 }());
 
 Module.globalMethod();
+
+var Module = (function($, _) {
+    // some code using jQuery and underscore
+}(jQuery, _));
