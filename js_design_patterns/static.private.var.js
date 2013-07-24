@@ -3,9 +3,13 @@ var Constructor = (function () {
     //private static member
     var privateVar = 0;
 
+    //here goes real constructor implementation
     return function() {
-        //here goes real constructor implementation
+        var that = {};
+
         console.log(privateVar++);
+
+        return that;
     }
 }());
 

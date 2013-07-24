@@ -7,7 +7,7 @@ var myFunction = function (param) {
     if (!f.cache[param]) {
         var result = {};
 
-        // expensive operation
+        // expensive operations
 
         f.cache[param] = result;
     }

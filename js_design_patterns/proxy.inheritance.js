@@ -7,14 +7,16 @@ function inherit(C, P) {
     C.prototype = new F();
 }
 
-// putting proxy into closure, saving 
+// putting proxy into closure, saving
 var inherit = (function () {
     var F = function () {};
 
     return function (C, P) {
         F.prototype = P.prototype;
         C.prototype = new F();
+
         C.uber = P.prototype;
+
         C.prototype.constructor = C;
-}
+    }
 }());

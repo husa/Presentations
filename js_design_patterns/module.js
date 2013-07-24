@@ -1,25 +1,26 @@
 'use strict'
 var Module = (function(){
 
-	// private
-	var privateVar = 'i\'m private';
+    // private
+    var privateVar = 'i\'m private';
 
-	function privateFunc() {
+    function privateFunc() {
 
-	}
+    }
 
-	var privateMethod = function() {
-		console.log(privateVar);
-	}
+    var privateMethod = function() {
+        console.log(privateVar);
+    }
 
-	return {
-		init         : function() {},
-		globalMethod : privateMethod
-	}
+    return {
+        init         : function() {},
+        globalMethod : privateMethod
+    }
 }());
 
 Module.globalMethod();
 
-var Module = (function($, _) {
-    // some code using jQuery and underscore
-}(jQuery, _));
+// practical example
+// var Module = (function($, _) {
+//     // some code using jQuery and underscore
+// }(jQuery, _));

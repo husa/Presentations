@@ -1,12 +1,12 @@
-//'use strict'
+'use strict'
 //that pattern
 
 var Constructor = function() {
-    //var that = {};
+    var that = {};
 
-    this.someMethod = function() {};
+    that.someMethod = function() {};
 
-    //return that;
+    return that;
 }
 
 var a = new Constructor();
@@ -18,5 +18,5 @@ console.log(b);
 
 console.log(root.someMethod);
 
-//console.log( a.constructor === b.constructor);
-//console.log(a.prototype === b.prototype);
+console.log( a.constructor === b.constructor);
+console.log(a.prototype === b.prototype);

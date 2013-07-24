@@ -4,39 +4,39 @@
 function CarMaker () {};
 
 CarMaker.prototype.drive = function() {
-	return 'Vroom. I have ' + this.doors + ' doors';
+    return 'Vroom. I have ' + this.doors + ' doors';
 };
 
 CarMaker.factory = function (type) {
-	var constr = type,
-		newcar;
+    var constr = type,
+        newcar;
 
-	if ( typeof(CarMaker[constr]) !== 'function' ) {
-		throw {
-			name : 'Error',
-			message : constr + ' doesn\'t exist'
-		};
-	}
+    if ( typeof(CarMaker[constr]) !== 'function' ) {
+        throw {
+            name : 'Error',
+            message : constr + ' doesn\'t exist'
+        };
+    }
 
-	if ( typeof CarMaker[constr].drive !== 'function' ) {
-		CarMaker[constr].prototype = new CarMaker();
-	}
+    if ( typeof CarMaker[constr].drive !== 'function' ) {
+        CarMaker[constr].prototype = new CarMaker();
+    }
 
-	newcar = new CarMaker[constr]();
+    newcar = new CarMaker[constr]();
 
-	// doing some stuff
+    // doing some stuff
 
-	return newcar;
+    return newcar;
 }
 
 CarMaker.Compact = function () {
-	this.doors = 2;
+    this.doors = 2;
 }
 CarMaker.Convertible = function () {
-	this.doors = 4;
+    this.doors = 4;
 }
 CarMaker.SUV = function () {
-	this.doors = 100500;
+    this.doors = 100500;
 }
 
 var corolla  = CarMaker.factory('Compact');
