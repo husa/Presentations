@@ -5,22 +5,22 @@ var Module = (function(){
     var privateVar = 'i\'m private';
 
     function privateFunc() {
-
-    }
-
-    var privateMethod = function() {
-        console.log(privateVar);
+        //doing some 007 stuff
     }
 
     return {
-        init         : function() {},
-        globalMethod : privateMethod
+        init   : function() {
+
+        },
+        action : function (param) {
+            // working with private variables and methods
+        }
     }
 }());
 
 Module.globalMethod();
 
 // practical example
-// var Module = (function($, _) {
-//     // some code using jQuery and underscore
-// }(jQuery, _));
+var Module = (function($, _) {
+    // some code using jQuery and underscore
+}(jQuery, _));
