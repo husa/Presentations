@@ -1,4 +1,4 @@
-'use strict'
+c'use strict'
 var klass = function(Parent, properties) {
     var Child, F, i;
 
