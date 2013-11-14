@@ -1,5 +1,5 @@
 
-## JavaScript Style Guide
+## Modularity in JS
 #### Yuriy Husnay
 
 
