@@ -22,7 +22,7 @@ var SLIDE_CONFIG = {
   presenters: [{
     name: 'Yuriy Husnay',
     company: 'Eleks',
-    gplus: 'https://plus.google.com/112258156152431356191',
+    gplus: 'google.com/+YuriyHusnay',
     twitter: '@YuriyHusnay',
     github: 'http://github.com/husa'
   }]
