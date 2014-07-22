@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SlideShow</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="components/platform/platform.js"></script>
+
+  <link rel="import" href="components/slideshow/slideshow/slider-slideshow.html">
+  <link rel="import" href="components/slideshow/slide/slider-slide.html">
+  <link rel="import" href="components/slideshow/title/slider-title.html">
+  <link rel="import" href="components/slideshow/caption/slider-caption.html">
+  <link rel="import" href="components/slideshow/code/slider-code.html">
+
+
+  <style>
+
+  html,body {
+    height: 100%;
+    margin: 0;
+  }
+  </style>
+</head>
+
+<body unresolved touch-action="auto">
+
+  <slider-slideshow background="#eee" color="#333">
+
+    <slider-slide>
+      <div class="intro" style="text-align: center; padding-top: 10%;">
+        <img src="img/polymer-title.svg" alt="alt" width="80%">
+        <h1 style="font-weight: 100; font-size: 3em; color: #999">A Web Components Revolution</h1>
+      </div>
+    </slider-slide>
+
+    <slider-slide>
+      <slider-title>
+        test title
+      </slider-title>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, eligendi, libero, perspiciatis facere illo dignissimos porro delectus eveniet ea ratione assumenda iste. Beatae repudiandae quia aperiam impedit ad quos magnam.
+      </div>
+      <ul>
+        <li>This is list item #1</li>
+        <li>This is list item #2</li>
+        <li>This is list item #3</li>
+        <li>This is list item #4</li>
+      </ul>
+      <slider-caption color="#999" align="right">
+        this is caption
+      </slider-caption>
+    </slider-slide>
+
+    <slider-slide backgroundimage="img/history.jpg" color="white">
+      <slider-title align="left">
+        This is title
+      </slider-title>
+      <slider-code language="javascript">
+(function() {
+    Polymer('slider-slideshow', {
+        clickHandler : function(e) {
+            e.preventDefault();
+
+            this.navigateNext();
+        },
+        handleRightClick : function(e) {
+            e.preventDefault();
+
+            this.navigateBack();
+        },
+
+        navigateNext : function() {
+            console.log('navigateNext');
+        },
+
+        navigateBack : function() {
+           console.log('navigateBack');
+        }
+    });
+})();
+      </slider-code>
+    </slider-slide>
+    <slider-slide>
+      Second Slide
+    </slider-slide>
+
+    <slider-slide>
+      <slider-title>
+        Third Slide
+      </slider-title>
+
+      Some content
+    </slider-slide>
+  </slider-slideshow>
+</body>
+</html>

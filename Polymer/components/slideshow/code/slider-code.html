@@ -1,0 +1,36 @@
+<script src="prism/prism.js" data-manual></script>
+<link rel="stylesheet" href="prism/prism.css">
+
+<polymer-element name="slider-code" attributes="language">
+  <template>
+    <pre>
+      <code id="codeviewer" class="language-{{language}}}">
+        <content></content>
+      </code>
+    </pre>
+    <style>
+      :host {
+        margin: 0 20px;
+        width: auto;
+        height: auto;
+        display: block;
+
+      }
+      :host > pre[class*="language-"] {
+        border-radius: 4px;
+        padding: 0 1em;
+      }
+    </style>
+
+  </template>
+
+  <script>
+  Polymer('slider-code', {
+    language : '*',
+    attached : function() {
+      this.$.codeviewer.innerHTML = this.innerHTML;
+      Prism.highlightElement(this.$.codeviewer);
+    }
+  });
+  </script>
+</polymer-element>

@@ -1,0 +1,47 @@
+<polymer-element name="slider-slide">
+  <template>
+    <style>
+    :host {
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+      padding: 0 10px;
+      transition: opacity 800ms ease-out;
+      opacity: .2;
+
+      background-position: 0 0;
+      background-repeat:  no-repeat;
+      background-size: cover;
+    }
+    :host[active] {
+      opacity: 1;
+    }
+    :host > * {
+      max-width: 95%;
+    };
+    </style>
+    <content></content>
+  </template>
+  <script>
+  Polymer('slider-slide', {
+    active : false,
+
+    publish : {
+      backgroundColor : 'none',
+      backgroundImage : '',
+      color : 'inherit',
+    },
+
+    attached : function() {
+      this.style.color = this.color;
+      this.style.backgroundColor = this.backgroundColor;
+      if (this.backgroundImage) {
+        this.style.backgroundImage = 'url("' + this.backgroundImage + '")';
+      }
+    }
+
+  });
+  </script>
+</polymer-element>

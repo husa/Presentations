@@ -1,0 +1,44 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../font-roboto/roboto.html">
+
+<polymer-element name="slider-slideshow"
+  on-keydown="{{keypressHandler}}"
+  on-click="{{clickHandler}}"
+  on-contextmenu="{{handleRightClick}}"
+  tabindex="0" autofocus>
+
+  <template>
+    <div id="slides-wrapper">
+      <content></content>
+    </div>
+
+    <style>
+      :host {
+        outline: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+        overflow-y: hidden;
+        overflow-x: hidden;
+        user-select: none;
+        -webkit-user-select: none;
+        font-family: 'RobotoDraft', sans-serif;
+
+        font-size: 16pt;
+      }
+      #slides-wrapper {
+        width: 100%;
+        height: 100%;
+        transition: all 400ms ease-out;
+      }
+
+      li {
+        margin: 1em 0;
+      }
+    </style>
+  </template>
+
+  <script src="script.js"></script>
+
+</polymer-element>

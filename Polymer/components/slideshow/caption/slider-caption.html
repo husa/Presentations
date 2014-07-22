@@ -1,0 +1,20 @@
+<polymer-element name="slider-caption" attributes="color align" noscript>
+  <template>
+    <style>
+      :host {
+        position: absolute;
+        bottom: 0;
+        width: 95%;
+      }
+      h3 {
+        margin: 0.1em;
+        margin-bottom: .5em;
+        font-size: 2em;
+        font-weight: 300;
+      }
+    </style>
+    <h3 style="color: {{color}}; text-align:{{align}};" id="title">
+      <content></content>
+    </h3>
+  </template>
+</polymer-element>
