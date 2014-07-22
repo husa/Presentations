@@ -1,0 +1,21 @@
+<polymer-element name="slider-chapter" extends="slider-slide" noscript>
+  <template>
+    <style>
+      ::content {
+        display: block;
+      }
+
+      ::content slider-title {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+      }
+    </style>
+    <content select="slider-title"></content>
+    <content select="slider-caption"></content>
+  </template>
+  <script>
+  </script>
+</polymer-element>

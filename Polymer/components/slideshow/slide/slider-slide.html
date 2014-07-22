@@ -15,7 +15,7 @@
       background-repeat:  no-repeat;
       background-size: cover;
     }
-    :host[active] {
+    :host([active]) {
       opacity: 1;
     }
     :host > * {
@@ -26,9 +26,8 @@
   </template>
   <script>
   Polymer('slider-slide', {
-    active : false,
-
     publish : {
+      active : false,
       backgroundColor : 'none',
       backgroundImage : '',
       color : 'inherit',

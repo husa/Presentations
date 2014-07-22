@@ -49,7 +49,7 @@
             this.focus();
             this.handleStyles();
 
-            this.slides = this.querySelectorAll('slider-slide');
+            this.slides = this.querySelectorAll('slider-slide, slider-chapter');
             this.active = {
                 slide : this.slides[0],
                 index : 0

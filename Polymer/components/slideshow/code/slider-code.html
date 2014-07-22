@@ -1,13 +1,7 @@
 <script src="prism/prism.js" data-manual></script>
-<link rel="stylesheet" href="prism/prism.css">
-
-<polymer-element name="slider-code" attributes="language">
+<polymer-element name="slider-code" attributes="language escape">
   <template>
-    <pre>
-      <code id="codeviewer" class="language-{{language}}}">
-        <content></content>
-      </code>
-    </pre>
+    <link rel="stylesheet" href="prism/prism.css">
     <style>
       :host {
         margin: 0 20px;
@@ -22,15 +16,32 @@
       }
     </style>
 
+    <pre>
+      <code id="codeviewer" class="language-{{language}}}">
+        <content></content>
+      </code>
+    </pre>
   </template>
 
   <script>
-  Polymer('slider-code', {
-    language : '*',
-    attached : function() {
-      this.$.codeviewer.innerHTML = this.innerHTML;
-      Prism.highlightElement(this.$.codeviewer);
-    }
+    Polymer('slider-code', {
+        language : '*',
+        escape : false,
+
+        attached : function() {
+            var html = this.innerHTML;
+
+            if (this.escape) {
+                html = this.encode(html);
+            }
+
+            this.$.codeviewer.innerHTML = html;
+            Prism.highlightElement(this.$.codeviewer);
+        },
+
+        encode : function(str) {
+            return str.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
+        }
   });
   </script>
 </polymer-element>

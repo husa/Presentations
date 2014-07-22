@@ -10,6 +10,7 @@
   <link rel="import" href="components/slideshow/title/slider-title.html">
   <link rel="import" href="components/slideshow/caption/slider-caption.html">
   <link rel="import" href="components/slideshow/code/slider-code.html">
+  <link rel="import" href="components/slideshow/chapter/slider-chapter.html">
 
 
   <style>
@@ -25,12 +26,15 @@
 
   <slider-slideshow background="#eee" color="#333">
 
-    <slider-slide>
-      <div class="intro" style="text-align: center; padding-top: 10%;">
-        <img src="img/polymer-title.svg" alt="alt" width="80%">
-        <h1 style="font-weight: 100; font-size: 3em; color: #999">A Web Components Revolution</h1>
-      </div>
-    </slider-slide>
+    <slider-chapter>
+        <slider-title color="#999" align="center">
+        <img src="img/polymer-title.svg" width="70%" alt="alt"><br>
+        A Web Components Revolution
+        </slider-title>
+        <slider-caption align="right" color="#999">
+            Yuriy Husnay
+        </slider-caption>
+    </slider-chapter>
 
     <slider-slide>
       <slider-title>
@@ -50,7 +54,22 @@
       </slider-caption>
     </slider-slide>
 
-    <slider-slide backgroundimage="img/history.jpg" color="white">
+    <slider-chapter backgroundColor="#1f2036" color="#fff">
+        <slider-title>
+            this is chapter slide
+        </slider-title>
+        <slider-caption>
+            with some caption
+        </slider-caption>
+    </slider-chapter>
+
+    <slider-chapter backgroundimage="img/history.jpg" color="#fff">
+        <slider-title align="center" size="2.5">
+            history
+        </slider-title>
+    </slider-chapter>
+
+    <slider-slide backgroundcolor="#aaa">
       <slider-title align="left">
         This is title
       </slider-title>
@@ -79,8 +98,39 @@
 })();
       </slider-code>
     </slider-slide>
+
+    <slider-chapter backgroundColor="#9f499b" color="#fff">
+        <slider-title align="right">
+            another chapter
+        </slider-title>
+        <slider-caption>
+            and caption again
+        </slider-caption>
+    </slider-chapter>
+    <slider-chapter backgroundColor="#e81d62" color="#fff">
+        <slider-title align="center">
+            super chapter
+        </slider-title>
+    </slider-chapter>
+
+
+    <slider-chapter backgroundColor="#3e50b4" color="#fff">
+        <slider-title align="center">
+            super chapter #2
+        </slider-title>
+    </slider-chapter>
+
     <slider-slide>
-      Second Slide
+        <slider-code language="markup" escape="true">
+            <polymer-element name="my-element" noscript>
+                <template>
+                    <style>
+                    </style>
+                </template>
+                <script>
+                </script>
+            </polymer-element>
+        </slider-code>
     </slider-slide>
 
     <slider-slide>

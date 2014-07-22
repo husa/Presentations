@@ -10,7 +10,7 @@
         font-weight: 300;
       }
     </style>
-    <h1 style="color: {{color}}; text-align:{{align}};" id="title">
+    <h1 style="color: {{color}}; text-align:{{align}}; font-size: {{size * 3}}em" id="title">
       <content></content>
     </h1>
   </template>
@@ -18,7 +18,8 @@
     Polymer('slider-title', {
       publish : {
         color : 'inherit',
-        align: 'left'
+        align : 'left',
+        size : 1,
       },
       attached : function() {
         var title = this.innerHTML;
